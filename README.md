@@ -1,92 +1,130 @@
-# 🔐 Password Manager - Backend (Node.js + MongoDB)
+# 🔐 Password Manager - Full Stack (React + Node.js + MongoDB)
 
-A simple password manager backend built using **Node.js**, **Express**, and **MongoDB** to securely store and manage login credentials.
+A full-stack password manager built using **React (Vite + Tailwind)** for the frontend and **Node.js + Express + MongoDB** for the backend.
 
-This version focuses on server-side functionality and uses a **MongoDB database** to persist data.
+This project allows you to securely store website credentials locally (in frontend version) or in a MongoDB database (in backend version).
 
 ---
 
 ## 🧰 Features
 
-- ✅ Add, retrieve, and delete saved credentials
+- ✅ Add, view, and delete website login credentials
 - ✅ RESTful API using Express.js
-- ✅ Secure storage in MongoDB
-- ✅ Environment variable support with `.env` file
-- ✅ CORS enabled (for frontend integration)
+- ✅ Secure storage in MongoDB (backend)
+- ✅ Environment variables using `.env`
+- ✅ Responsive UI built with Vite + React + Tailwind CSS
+- ✅ CORS enabled (for frontend-backend integration)
+- ✅ Safe GitHub profile link in footer
 
 ---
 
 ## 🛠️ Tech Stack
 
-- Backend: Node.js, Express.js
-- Database: MongoDB (Local or Atlas)
-- Middleware: dotenv, mongoose, body-parser, cors
+- **Frontend:** React, Vite, Tailwind CSS
+- **Backend:** Node.js, Express.js
+- **Database:** MongoDB (Local or Atlas)
+- **Tools:** dotenv, mongoose, body-parser, cors
 
 ---
 
-## 🚀 Getting Started
-
-### 📦 Prerequisites
-
-- [Node.js](https://nodejs.org/) (v16+ recommended)
-- [MongoDB Community Edition](https://www.mongodb.com/try/download/community) **OR** [MongoDB Atlas](https://www.mongodb.com/cloud/atlas)
-- [Git](https://git-scm.com/downloads) *(if cloning)*
-
----
-
-### 📁 Project Structure
+## 📁 Project Structure
 
 PasswordManager-Mongodb-/
 │
-├── Backend/                 # Your backend project (Node.js + Express + MongoDB)
-│   ├── node_modules/
-│   ├── .env                 # Not uploaded to GitHub (correct!)
-│   ├── server.js
-│   ├── package.json
-│   ├── package-lock.json
+├── Backend/ # Express backend
+│ ├── node_modules/
+│ ├── .env # (NOT uploaded – create manually)
+│ ├── server.js
+│ ├── package.json
+│ └── package-lock.json
 │
-├── node_modules/            # Frontend's node_modules (Vite/React)
+├── src/ # React frontend
 ├── public/
-├── src/                     # Frontend React source code
 ├── .gitignore
 ├── vite.config.js
 ├── tailwind.config.js
 ├── postcss.config.js
-├── README.md
-├── package.json             # Frontend's package.json
-└── index.html
+├── index.html
+├── package.json # Frontend dependencies
+└── README.md
 
+yaml
+Copy
+Edit
 
 ---
 
-## 📂 .env Setup
+## 🌍 API Endpoints (Backend)
 
-Inside the `Backend/` folder, create a `.env` file manually:
+| Method | Endpoint              | Description                    |
+|--------|-----------------------|--------------------------------|
+| GET    | `/api/passwords`      | Fetch all saved credentials    |
+| POST   | `/api/passwords`      | Add a new credential           |
+| DELETE | `/api/passwords/:id`  | Delete a credential by ID      |
+
+---
+
+## 📂 `.env` Setup (Backend)
+
+Inside the `Backend/` folder, create a `.env` file:
 
 ```env
 MONGODB_URI=mongodb://localhost:27017/passwordmanager
 PORT=3000
+🔒 Do not commit this file. It is listed in .gitignore.
 
-##  How to Run the Project Locally
-1. Clone the repository
+🚀 How to Run the Project Locally
+📦 Prerequisites
+Node.js (v16+)
+
+MongoDB (or MongoDB Atlas)
+
+Git
+
+▶️ Clone the Repository
+bash
+Copy
+Edit
 git clone https://github.com/GauravTarale77/PasswordManager-Mongodb-.git
-
-2. Navigate to the backend folder
-cd PasswordManager-Mongodb-/Backend
-
-3. Install dependencies
+cd PasswordManager-Mongodb-
+⚙️ Start the Backend Server
+bash
+Copy
+Edit
+cd Backend
 npm install
+Create a .env file in the Backend folder with the following content:
 
-4. Create .env file (as shown above)
+env
+Copy
+Edit
+MONGODB_URI=mongodb://localhost:27017/passwordmanager
+PORT=3000
+Start MongoDB (any one of the following):
 
-5. Start MongoDB locally
-If installed, run:
-
+bash
+Copy
+Edit
+# On Windows (CMD)
 net start MongoDB
 
-Or open MongoDB Compass or use MongoDB Atlas.
+# Or open MongoDB Compass
 
-6. Run the server
+# Or use MongoDB Atlas connection string
+Then run:
+
+bash
+Copy
+Edit
 npm run dev
+✅ Your backend will be live at: http://localhost:3000
 
-7. Server will run on http://localhost:3000
+🌐 Start the Frontend
+Open a new terminal and run:
+
+bash
+Copy
+Edit
+npm install
+npm run dev
+✅ Your frontend will be live at: http://localhost:5173
